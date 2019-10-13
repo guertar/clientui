@@ -1,33 +1,31 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mcommerce</title>
 
-    <title>Spring Boot Thymeleaf Hello World Example</title>
-
-
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
 
 </head>
-
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Mkyong.com</a>
-</nav>
 
-<main role="main" class="container">
+<div class="container">
 
-    <div class="starter-template">
-        <h1>Spring Boot Web Thymeleaf Example</h1>
-        <h2>
+    <h1>Application Mcommerce</h1>
 
-        </h2>
+    <div class="row">
+        <div th:each="produit : ${produits}" class="col-md-4 my-1">
+            <a th:href="@{|/details-produit/${produit.id}|}" >
+                <img th:src="${produit.image}"  class="card-img-top" />
+                <p th:text= "${produit.titre}"></p>
+            </a>
+        </div>
     </div>
 
+</div>
 
-</main>
-<!-- /.container -->
+
+<script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
